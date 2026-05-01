@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LaunchLive RAG - Frontend
 
-## Getting Started
+A premium, enterprise-grade RAG (Retrieval-Augmented Generation) platform frontend built with Next.js, Tailwind CSS, and Framer Motion. This project is designed with a high-end B2B SaaS aesthetic inspired by modern AI dashboards.
 
-First, run the development server:
+## 🚀 Getting Started
 
+### Prerequisites
+- Node.js 18.x or later
+- npm or yarn
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone <repo-url>
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 🛠 Backend Integration Guide (For Backend Developers)
+
+The frontend is currently in a "Demo Mode" using mock data and simulated API calls. To connect it to your backend services, follow these steps:
+
+### 1. API Configuration
+Create a `.env.local` file in the root directory:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+NEXT_PUBLIC_API_BASE_URL=https://api.your-service.com/v1
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Required API Endpoints
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### Ingestion Service (`POST /ingest`)
+- **Location**: `src/app/dashboard/ingest/page.tsx`
+- **Functionality**: Replace `simulateUpload` with a real `fetch` or `axios` call.
+- **Formats**: Support `multipart/form-data` for files and `application/json` for URL/Text.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### Chat & Reasoning (`POST /chat`)
+- **Location**: `src/app/dashboard/chat/page.tsx`
+- **Payload**: `{ "message": "string", "stream": boolean }`
+- **Requirement**: Implement Server-Sent Events (SSE) if you want real-time streaming responses (already styled in the UI).
 
-## Learn More
+#### Workspace Stats (`GET /stats`)
+- **Location**: `src/app/dashboard/page.tsx`
+- **Data needed**: Document counts, credit usage, recent activity logs.
 
-To learn more about Next.js, take a look at the following resources:
+#### Semantic Search (`GET /search`)
+- **Location**: `src/app/dashboard/search/page.tsx`
+- **Query**: `?q=search+term`
+- **Response**: Return a list of relevant document chunks with similarity scores.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Key Integration Files
+- `src/app/dashboard/page.tsx`: Main dashboard overview.
+- `src/app/dashboard/ingest/page.tsx`: Data ingestion logic.
+- `src/app/dashboard/chat/page.tsx`: AI chat interface.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🎨 Tech Stack
+- **Framework**: Next.js 15+ (App Router)
+- **Styling**: Tailwind CSS v4 (Custom Mesh Gradients)
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Components**: Shadcn UI (Customized for Premium Light Mode)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 Notes
+- **Light Mode Only**: The UI is strictly light mode. Do not add `dark:` classes.
+- **Responsive**: The dashboard is optimized for desktop and tablet views.
