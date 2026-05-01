@@ -493,7 +493,7 @@ export default function MarketingPage() {
                 Built for Every Industry
               </motion.h2>
               <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-xl text-muted-foreground max-w-2xl mx-auto font-medium">
-                Whatever your domain, LaunchLive adapts to your proprietary knowledge base.
+                Whatever your domain, Our System adapts to your proprietary knowledge base.
               </motion.p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
