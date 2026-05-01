@@ -102,6 +102,7 @@ export default function MarketingPage() {
           <Link href="#how-it-works" className="hover:text-foreground transition-colors">How it works</Link>
           <Link href="#features" className="hover:text-foreground transition-colors">Features</Link>
           <Link href="#use-cases" className="hover:text-foreground transition-colors">Use Cases</Link>
+          <Link href="/enterprise" className="hover:text-foreground transition-colors font-semibold text-primary/80 hover:text-primary">For Enterprise</Link>
           <Link href="/dashboard" className="hover:text-foreground transition-colors text-primary font-semibold">Dashboard Login</Link>
         </nav>
         <div className="flex items-center gap-4">
@@ -251,12 +252,20 @@ export default function MarketingPage() {
                         <Sparkles className="w-4 h-4 text-primary shrink-0" />
                         <h3 className="text-sm font-semibold truncate">Key Insights Extracted</h3>
                      </div>
-                     <div className="space-y-2">
-                        <div className="h-2 w-full bg-muted rounded-full" />
-                        <div className="h-2 w-4/5 bg-muted rounded-full" />
-                        <div className="h-2 w-full bg-muted rounded-full" />
-                        <div className="h-2 w-2/3 bg-muted rounded-full" />
-                     </div>
+                     <ul className="space-y-2.5">
+                        <li className="flex items-start gap-2 text-[10px] md:text-xs text-muted-foreground leading-relaxed">
+                          <span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                          Net-30 payment clause detected across <span className="font-medium text-foreground">6 contracts</span>
+                        </li>
+                        <li className="flex items-start gap-2 text-[10px] md:text-xs text-muted-foreground leading-relaxed">
+                          <span className="mt-1 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                          <span className="font-medium text-foreground">3 high-value leads</span> match Q3 proposal criteria
+                        </li>
+                        <li className="flex items-start gap-2 text-[10px] md:text-xs text-muted-foreground leading-relaxed">
+                          <span className="mt-1 w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
+                          Indemnification risk flagged in <span className="font-medium text-foreground">Clause 8.2</span>
+                        </li>
+                     </ul>
                   </motion.div>
                   <motion.div initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 1.1 }} className="bg-background border border-primary/20 bg-primary/5 rounded-xl p-4 shadow-sm flex gap-3 md:translate-x-[-16px]">
                      <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 mt-1">
