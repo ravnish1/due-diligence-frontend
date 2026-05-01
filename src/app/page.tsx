@@ -111,7 +111,7 @@ export default function MarketingPage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative px-6 lg:px-14 py-24 md:py-32 flex flex-col items-center text-center overflow-hidden">
+        <section className="relative px-6 lg:px-14 pt-12 pb-24 md:pt-16 md:pb-32 flex flex-col items-center text-center overflow-hidden">
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background"></div>
 
           <motion.div
@@ -273,27 +273,130 @@ export default function MarketingPage() {
           </motion.div>
         </section>
 
-        {/* How It Works */}
-        <section id="how-it-works" className="py-24 px-6 lg:px-14 bg-muted/30">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">How It Works</h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Three simple steps to transform your static documents into interactive knowledge bases.</p>
+        {/* How It Works - Cinematic Light Premium */}
+        <section id="how-it-works" className="relative py-32 px-6 lg:px-14 bg-muted/30 text-foreground overflow-hidden">
+          {/* Ambient Background Effects */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(var(--primary),0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(var(--primary),0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+
+          <div className="relative max-w-6xl mx-auto">
+            <div className="text-center mb-24">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="inline-flex items-center rounded-full border border-primary/20 px-3 py-1 text-xs font-medium bg-primary/5 text-primary backdrop-blur-sm mb-6">
+                System Architecture
+              </motion.div>
+              <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 tracking-tight">
+                From Documents to Intelligence <br className="hidden md:block" />
+                <span className="text-primary">— In Seconds</span>
+              </motion.h2>
+              <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                Stop drowning in static files. Deploy an enterprise-grade retrieval pipeline that instantly converts your raw data into a reasoning engine ready for complex queries.
+              </motion.p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                { step: "01", title: "Upload Docs", desc: "Drag and drop PDFs, Word docs, CSVs, or enter URLs. We handle the parsing instantly.", icon: FileText },
-                { step: "02", title: "Ask Questions", desc: "Query your documents using natural language. Our semantic search finds the exact context.", icon: Search },
-                { step: "03", title: "Get Answers", desc: "Receive highly accurate AI-generated responses complete with precise source citations.", icon: MessageSquare }
-              ].map((s, i) => (
-                <div key={i} className="relative bg-background p-8 rounded-2xl border shadow-sm flex flex-col items-center text-center">
-                  <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                    <s.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-heading font-semibold mb-3">{s.title}</h3>
-                  <p className="text-muted-foreground">{s.desc}</p>
-                </div>
-              ))}
+
+            <div className="relative">
+              {/* Connector Line (Desktop) */}
+              <div className="absolute top-24 left-[10%] right-[10%] h-[2px] bg-primary/5 hidden md:block">
+                <motion.div 
+                  initial={{ scaleX: 0, originX: 0 }} 
+                  whileInView={{ scaleX: 1 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 1.5, ease: "circOut" }} 
+                  className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary to-primary/0 shadow-[0_0_15px_rgba(var(--primary),0.3)]" 
+                />
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6 md:gap-10 relative z-10">
+                {[
+                  { 
+                    step: "01", 
+                    title: "Upload Docs", 
+                    desc: "Drag and drop PDFs, Word docs, CSVs, or enter URLs. We handle the parsing, chunking, and vector embedding instantly.", 
+                    icon: FileText,
+                    mockup: (
+                      <div className="w-full h-full bg-background border rounded-lg p-3 flex flex-col gap-2 relative overflow-hidden shadow-sm">
+                        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50" />
+                        <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center border border-primary/20 mb-1"><FileText className="w-4 h-4 text-primary" /></div>
+                        <div className="h-1.5 w-full bg-muted rounded-full" />
+                        <div className="h-1.5 w-3/4 bg-muted rounded-full" />
+                        <div className="mt-auto h-1 w-full overflow-hidden bg-primary/10 rounded-full"><div className="h-full bg-primary w-2/3" /></div>
+                      </div>
+                    )
+                  },
+                  { 
+                    step: "02", 
+                    title: "Ask Questions", 
+                    desc: "Query your documents using natural language. Our semantic search bypasses keywords to find the exact conceptual context.", 
+                    icon: Search,
+                    mockup: (
+                      <div className="w-full h-full bg-background border rounded-lg p-3 flex flex-col gap-2 relative overflow-hidden shadow-sm">
+                         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50" />
+                         <div className="w-full h-6 rounded-full bg-muted/50 border flex items-center px-2 gap-2">
+                           <Search className="w-3 h-3 text-primary" />
+                           <div className="h-1 w-12 bg-muted-foreground/30 rounded-full" />
+                         </div>
+                         <div className="mt-2 space-y-1">
+                           <div className="h-1.5 w-full bg-muted rounded-full" />
+                           <div className="h-1.5 w-5/6 bg-muted rounded-full" />
+                         </div>
+                      </div>
+                    )
+                  },
+                  { 
+                    step: "03", 
+                    title: "Get Answers", 
+                    desc: "Receive highly accurate, synthesis-driven AI responses complete with precise, clickable source citations for immediate verification.", 
+                    icon: MessageSquare,
+                    mockup: (
+                      <div className="w-full h-full bg-background border rounded-lg p-3 flex flex-col relative overflow-hidden shadow-sm">
+                         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50" />
+                         <div className="flex gap-2 items-start mb-2">
+                           <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20"><Sparkles className="w-2.5 h-2.5 text-primary" /></div>
+                           <div className="space-y-1 w-full pt-1">
+                             <div className="h-1.5 w-full bg-muted rounded-full" />
+                             <div className="h-1.5 w-4/5 bg-muted rounded-full" />
+                           </div>
+                         </div>
+                         <div className="mt-auto flex gap-1">
+                           <div className="h-3 w-8 bg-muted border rounded-sm" />
+                           <div className="h-3 w-8 bg-muted border rounded-sm" />
+                         </div>
+                      </div>
+                    )
+                  }
+                ].map((s, i) => (
+                  <motion.div 
+                    key={i} 
+                    initial={{ opacity: 0, y: 30 }} 
+                    whileInView={{ opacity: 1, y: 0 }} 
+                    viewport={{ once: true }} 
+                    transition={{ delay: 0.3 + (i * 0.2) }}
+                    className="group relative bg-background/50 hover:bg-background border hover:border-primary/30 backdrop-blur-xl p-8 rounded-3xl transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-lg"
+                  >
+                    <div className="absolute top-0 right-8 -translate-y-1/2 text-5xl font-heading font-black text-muted-foreground/10 group-hover:text-primary/10 transition-colors pointer-events-none">
+                      {s.step}
+                    </div>
+                    
+                    <div className="w-full h-32 mb-8 rounded-xl bg-muted/30 border p-4 flex items-center justify-center relative group-hover:border-primary/20 transition-colors">
+                       {s.mockup}
+                    </div>
+
+                    <h3 className="text-xl font-heading font-semibold mb-3 text-foreground flex items-center gap-2">
+                      <span className="text-primary">{s.step}.</span> {s.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      {s.desc}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-20 flex justify-center">
+              <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 1 }}>
+                <Button size="lg" className="h-12 px-8 rounded-full shadow-lg shadow-primary/25 transition-all font-medium text-base">
+                  See It In Action
+                </Button>
+              </motion.div>
             </div>
           </div>
         </section>
