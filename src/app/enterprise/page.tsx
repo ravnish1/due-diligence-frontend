@@ -142,7 +142,12 @@ export default function EnterprisePage() {
       <main className="flex-1">
         {/* Hero */}
         <section className="relative px-6 lg:px-14 pt-20 pb-24 text-center overflow-hidden">
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background" />
+          {/* Animated Shader Gradient Background */}
+          <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full animate-mesh-1" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-indigo-500/10 blur-[120px] rounded-full animate-mesh-2" />
+            <div className="absolute top-[20%] right-[10%] w-[40%] h-[40%] bg-sky-500/10 blur-[100px] rounded-full animate-mesh-1" />
+          </div>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-4xl mx-auto">
             <div className="inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium bg-primary/5 text-primary border-primary/20 mb-6">
               <Building2 className="w-3.5 h-3.5 mr-2" /> Built for Enterprise Teams
@@ -172,7 +177,7 @@ export default function EnterprisePage() {
         <section className="border-y bg-muted/20 py-6 px-6 lg:px-14">
           <div className="max-w-5xl mx-auto flex flex-wrap justify-center md:justify-between items-center gap-6 text-sm text-muted-foreground font-medium">
             {[
-              { icon: Shield, text: "SOC 2 Type II Ready" },
+              { icon: Shield, text: "Enterprise Architecture" },
               { icon: Lock, text: "End-to-End Encrypted" },
               { icon: Key, text: "Bring Your Own Key (BYOK)" },
               { icon: Server, text: "Private Cloud Deployable" },
@@ -347,9 +352,8 @@ export default function EnterprisePage() {
                 </p>
                 <div className="space-y-5">
                   {[
-                    { icon: Mail, label: "Enterprise Email", value: "enterprise@launchlive.ai" },
-                    { icon: Phone, label: "Sales Hotline", value: "+1 (888) 999-RAG-1" },
-                    { icon: MessageSquare, label: "Live Chat", value: "Available Mon–Fri, 9am–6pm IST" },
+                    { icon: Mail, label: "Enterprise Email", value: "info@launchlive.studio" },
+
                   ].map(({ icon: Icon, label, value }) => (
                     <div key={label} className="flex items-center gap-4">
                       <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
