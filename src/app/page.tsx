@@ -326,113 +326,107 @@ export default function MarketingPage() {
               <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
                 Stop drowning in static files. Deploy an enterprise-grade retrieval pipeline that instantly converts your raw data into a reasoning engine ready for complex queries.
               </motion.p>
-            </div>
-
-            <div className="relative">
-              {/* Connector Line (Desktop) */}
-              <div className="absolute top-24 left-[10%] right-[10%] h-[2px] bg-primary/5 hidden md:block">
-                <motion.div
-                  initial={{ scaleX: 0, originX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, ease: "circOut" }}
-                  className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary to-primary/0 shadow-[0_0_15px_rgba(var(--primary),0.3)]"
-                />
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-6 md:gap-10 relative z-10">
-                {[
-                  {
-                    step: "01",
-                    title: "Upload Docs",
-                    desc: "Drag and drop PDFs, Word docs, CSVs, or enter URLs. We handle the parsing, chunking, and vector embedding instantly.",
-                    icon: FileText,
-                    mockup: (
-                      <div className="w-full h-full bg-background border rounded-lg p-3 flex flex-col gap-2 relative overflow-hidden shadow-sm">
-                        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50" />
-                        <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center border border-primary/20 mb-1"><FileText className="w-4 h-4 text-primary" /></div>
-                        <div className="h-1.5 w-full bg-muted rounded-full" />
-                        <div className="h-1.5 w-3/4 bg-muted rounded-full" />
-                        <div className="mt-auto h-1 w-full overflow-hidden bg-primary/10 rounded-full"><div className="h-full bg-primary w-2/3" /></div>
-                      </div>
-                    )
-                  },
-                  {
-                    step: "02",
-                    title: "Ask Questions",
-                    desc: "Query your documents using natural language. Our semantic search bypasses keywords to find the exact conceptual context.",
-                    icon: Search,
-                    mockup: (
-                      <div className="w-full h-full bg-background border rounded-lg p-3 flex flex-col gap-2 relative overflow-hidden shadow-sm">
-                        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50" />
-                        <div className="w-full h-6 rounded-full bg-muted/50 border flex items-center px-2 gap-2">
-                          <Search className="w-3 h-3 text-primary" />
-                          <div className="h-1 w-12 bg-muted-foreground/30 rounded-full" />
-                        </div>
-                        <div className="mt-2 space-y-1">
-                          <div className="h-1.5 w-full bg-muted rounded-full" />
-                          <div className="h-1.5 w-5/6 bg-muted rounded-full" />
-                        </div>
-                      </div>
-                    )
-                  },
-                  {
-                    step: "03",
-                    title: "Get Answers",
-                    desc: "Receive highly accurate, synthesis-driven AI responses complete with precise, clickable source citations for immediate verification.",
-                    icon: MessageSquare,
-                    mockup: (
-                      <div className="w-full h-full bg-background border rounded-lg p-3 flex flex-col relative overflow-hidden shadow-sm">
-                        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50" />
-                        <div className="flex gap-2 items-start mb-2">
-                          <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20"><Sparkles className="w-2.5 h-2.5 text-primary" /></div>
-                          <div className="space-y-1 w-full pt-1">
-                            <div className="h-1.5 w-full bg-muted rounded-full" />
-                            <div className="h-1.5 w-4/5 bg-muted rounded-full" />
-                          </div>
-                        </div>
-                        <div className="mt-auto flex gap-1">
-                          <div className="h-3 w-8 bg-muted border rounded-sm" />
-                          <div className="h-3 w-8 bg-muted border rounded-sm" />
-                        </div>
-                      </div>
-                    )
-                  }
-                ].map((s, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+              <div className="relative mt-24 max-w-6xl mx-auto px-4">
+              {/* Desktop Horizontal Roadmap Line */}
+              <div className="absolute top-[60px] left-0 right-0 hidden md:block pointer-events-none" aria-hidden="true">
+                <svg className="w-full h-24 text-primary/10" viewBox="0 0 1200 100" fill="none" preserveAspectRatio="none">
+                  <path d="M 200 50 L 1000 50" stroke="currentColor" strokeWidth="12" strokeLinecap="round" />
+                </svg>
+                <svg className="absolute top-0 left-0 w-full h-24 text-primary" viewBox="0 0 1200 100" fill="none" preserveAspectRatio="none">
+                  <motion.path 
+                    d="M 200 50 L 1000 50" 
+                    stroke="currentColor" 
+                    strokeWidth="4" 
+                    strokeLinecap="round"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3 + (i * 0.2) }}
-                    className="group relative bg-background/50 hover:bg-background border hover:border-primary/30 backdrop-blur-xl p-8 rounded-3xl transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-lg"
-                  >
-                    <div className="absolute top-0 right-8 -translate-y-1/2 text-5xl font-heading font-black text-muted-foreground/10 group-hover:text-primary/10 transition-colors pointer-events-none">
-                      {s.step}
-                    </div>
-
-                    <div className="w-full h-32 mb-8 rounded-xl bg-muted/30 border p-4 flex items-center justify-center relative group-hover:border-primary/20 transition-colors">
-                      {s.mockup}
-                    </div>
-
-                    <h3 className="text-xl font-heading font-semibold mb-3 text-foreground flex items-center gap-2">
-                      <span className="text-primary">{s.step}.</span> {s.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
-                      {s.desc}
-                    </p>
-                  </motion.div>
-                ))}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                  />
+                </svg>
               </div>
+
+              {/* Mobile Vertical Line */}
+              <div className="absolute top-0 bottom-0 left-1/2 w-[2px] -translate-x-1/2 bg-primary/10 rounded-full md:hidden" />
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-20 md:gap-12 relative z-10">
+                {/* Step 1 */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div className="w-20 h-20 rounded-3xl bg-primary border-4 border-background flex items-center justify-center shadow-xl shadow-primary/20 relative mb-8">
+                    <FileText className="w-10 h-10 text-primary-foreground" />
+                    <div className="absolute -top-3 -right-3 w-10 h-10 rounded-2xl bg-background border-2 border-primary/20 flex items-center justify-center font-black text-sm text-primary shadow-lg z-20">01</div>
+                    <div className="absolute inset-0 bg-primary/20 blur-[40px] rounded-full -z-10" />
+                  </div>
+                  <h3 className="text-2xl font-heading font-black mb-4 tracking-tight">Upload Documents</h3>
+                  <p className="text-muted-foreground leading-relaxed max-w-sm">
+                    Drag and drop PDFs, Word docs, CSVs, or enter URLs. We handle the parsing, chunking, and embedding instantly.
+                  </p>
+                </motion.div>
+
+                {/* Step 2 */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div className="w-20 h-20 rounded-3xl bg-primary border-4 border-background flex items-center justify-center shadow-xl shadow-primary/20 relative mb-8">
+                    <Search className="w-10 h-10 text-primary-foreground" />
+                    <div className="absolute -top-3 -right-3 w-10 h-10 rounded-2xl bg-background border-2 border-primary/20 flex items-center justify-center font-black text-sm text-primary shadow-lg z-20">02</div>
+                    <div className="absolute inset-0 bg-primary/20 blur-[40px] rounded-full -z-10" />
+                  </div>
+                  <h3 className="text-2xl font-heading font-black mb-4 tracking-tight">Ask Questions</h3>
+                  <p className="text-muted-foreground leading-relaxed max-w-sm">
+                    Query your documents using natural language. Our semantic search finds the exact conceptual context instantly.
+                  </p>
+                </motion.div>
+
+                {/* Step 3 */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div className="w-20 h-20 rounded-3xl bg-primary border-4 border-background flex items-center justify-center shadow-xl shadow-primary/20 relative mb-8">
+                    <Sparkles className="w-10 h-10 text-primary-foreground" />
+                    <div className="absolute -top-3 -right-3 w-10 h-10 rounded-2xl bg-background border-2 border-primary/20 flex items-center justify-center font-black text-sm text-primary shadow-lg z-20">03</div>
+                    <div className="absolute inset-0 bg-primary/20 blur-[40px] rounded-full -z-10" />
+                  </div>
+                  <h3 className="text-2xl font-heading font-black mb-4 tracking-tight">Get Synthesis</h3>
+                  <p className="text-muted-foreground leading-relaxed max-w-sm">
+                    Receive accurate AI responses complete with precise, clickable source citations for immediate verification.
+                  </p>
+                </motion.div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8 }}
+                className="mt-20 flex justify-center"
+              >
+                <TrialGateDialog trigger={
+                  <Button size="lg" className="h-16 px-12 rounded-full shadow-2xl shadow-primary/30 transition-all font-black text-xl group hover:scale-105 bg-primary text-primary-foreground">
+                    Get Started Now <ArrowRight className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                } />
+              </motion.div>
             </div>
 
-            <div className="mt-20 flex justify-center">
-              <TrialGateDialog trigger={
-                <Button size="lg" className="h-12 px-8 rounded-full shadow-lg shadow-primary/25 transition-all font-medium text-base">
-                  See It In Action
-                </Button>
-              } />
+
+
+
             </div>
+
           </div>
         </section>
 
