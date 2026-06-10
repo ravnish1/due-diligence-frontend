@@ -100,6 +100,9 @@ export default function MarketingPage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative px-6 lg:px-14 pt-6 pb-12 md:pt-10 md:pb-20 flex flex-col items-center text-center overflow-hidden">
+          {/* RAG Tech Background Image */}
+          <div className="absolute inset-0 -z-20 bg-[url('/rag_hero_bg.png')] bg-cover bg-center opacity-[0.07] pointer-events-none" />
+
           {/* Animated Shader Gradient Background */}
           <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
             <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full animate-mesh-1" />
