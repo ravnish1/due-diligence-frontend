@@ -578,7 +578,7 @@ export default function MarketingPage() {
               <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 tracking-tighter">Frequently Asked Questions</h2>
               <p className="text-muted-foreground text-lg">Everything you need to know about the platform.</p>
             </div>
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion collapsible className="w-full">
               <AccordionItem value="item-1" className="border-b border-border/50 py-2">
                 <AccordionTrigger className="text-lg font-semibold hover:text-primary transition-colors">What document formats are supported?</AccordionTrigger>
                 <AccordionContent className="text-muted-foreground text-base leading-relaxed">We support PDF, DOCX, TXT, MD, CSV, and live URLs. More formats are continually being added.</AccordionContent>
