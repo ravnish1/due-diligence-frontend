@@ -13,19 +13,18 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 function TrialGateDialog({ trigger }: { trigger: React.ReactNode }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const router = useRouter();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email === "admin@gmail.com" && password === "admin123") {
-      toast.success("ACCESS GRANTED: Welcome to the RAG Playground!", {
+    if (name.trim()) {
+      toast.success(`ACCESS GRANTED: Welcome, ${name}!`, {
         duration: 4000,
       });
       router.push("/playground");
     } else {
-      toast.error("INVALID CREDENTIALS: Check your email and password.");
+      toast.error("Please enter your name to access the playground.");
     }
   };
 
@@ -37,31 +36,19 @@ function TrialGateDialog({ trigger }: { trigger: React.ReactNode }) {
         <DialogHeader>
           <DialogTitle className="font-heading text-3xl text-foreground">Trial Access Gate</DialogTitle>
           <DialogDescription className="text-muted-foreground text-base">
-            Enter your trial credentials to access the playground.
+            Enter your name to access the playground.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleLogin} className="grid gap-6 py-6">
           <div className="space-y-4">
             <div className="grid gap-2">
-              <Label htmlFor="trial-email" className="text-foreground font-medium">Email Address</Label>
+              <Label htmlFor="trial-name" className="text-foreground font-medium">Your Name</Label>
               <Input
-                id="trial-email"
-                type="email"
-                placeholder="admin@gmail.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-muted/50 border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all rounded-xl h-12 text-foreground placeholder:text-muted-foreground/50"
-                required
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="trial-password" className="text-foreground font-medium">Password</Label>
-              <Input
-                id="trial-password"
-                type="password"
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                id="trial-name"
+                type="text"
+                placeholder="John Doe"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="bg-muted/50 border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all rounded-xl h-12 text-foreground placeholder:text-muted-foreground/50"
                 required
               />
